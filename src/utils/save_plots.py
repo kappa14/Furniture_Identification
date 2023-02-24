@@ -21,7 +21,7 @@ def save_plots(train_acc, valid_acc, train_loss, valid_loss):
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
     plt.legend()
-    plt.savefig('outputs/Accuracy.png')
+    plt.savefig('Accuracy.png')
 
     # loss plots
     plt.figure(figsize=(10, 7))
@@ -36,4 +36,4 @@ def save_plots(train_acc, valid_acc, train_loss, valid_loss):
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
     plt.legend()
-    plt.savefig('outputs/Loss.png')
+    plt.savefig('Loss.png')

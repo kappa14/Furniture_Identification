@@ -4,13 +4,13 @@ import torchvision.datasets as datasets
 from torch.utils.data import DataLoader
 
 # batch size
-BATCH_SIZE = 8
+BATCH_SIZE = 4
 
 # -------- Augmenting Data ---------
 
 # Training transforms : Resize, Horizontal Flip, Rotation [10-20]% -> Tensor() -> Normalize
 train_transform = transforms.Compose([
-    transforms.Resize(224),
+    transforms.Resize((224, 224)),
     transforms.RandomHorizontalFlip(p=0.5),
     transforms.RandomRotation(degrees=(10, 20)),
     transforms.ToTensor(),
@@ -22,7 +22,7 @@ train_transform = transforms.Compose([
 
 # Validation transforms
 valid_transform = transforms.Compose([
-    transforms.Resize(224),
+    transforms.Resize((224, 224)),
     transforms.ToTensor(),
     transforms.Normalize(
         mean=[0.5, 0.5, 0.5],
@@ -48,10 +48,10 @@ valid_dataset = datasets.ImageFolder(
 # training data loaders
 train_loader = DataLoader(
     train_dataset, batch_size=BATCH_SIZE, shuffle=True,
-    num_workers=4, pin_memory=True
+    num_workers=0, pin_memory=True
 )
 # validation data loaders
 valid_loader = DataLoader(
     valid_dataset, batch_size=BATCH_SIZE, shuffle=False,
-    num_workers=4, pin_memory=True
+    num_workers=0, pin_memory=True
 )
