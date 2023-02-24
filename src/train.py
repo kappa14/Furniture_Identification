@@ -1,22 +1,14 @@
 import torch
 import argparse
 import torchvision
-from torch.autograd import Variable
 import torch.nn as nn
-import torch.nn.functional as F
 
-from torch.utils.data import Dataset, DataLoader
-from torchvision import transforms
 import torch.optim as optim
 
 from dataloader import train_loader, valid_loader
 from utils.save_model import save_model
 from utils.save_plots import save_plots
 
-import numpy as np
-import pandas as pd
-import os
-import glob
 from tqdm.auto import tqdm
 import time
 
